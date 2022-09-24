@@ -20,7 +20,9 @@ function App() {
       <TodoCounter />
       <TodoSearch />
       <TodoList >
-        <TodoItem />
+        {todos.map(todo =>(
+          <TodoItem key={todo.text} text={todo.text}/>
+        ))}
       </TodoList>
       <CreateTodoButton />
     </React.Fragment>
