@@ -2,7 +2,7 @@ import React from "react";
 
 function TodoCounter() {
     return(
-        <h2> hoTodoCounterla </h2>
+        <h2> Has complentado 2 de 3 ToDos</h2>
     )
 }
 
