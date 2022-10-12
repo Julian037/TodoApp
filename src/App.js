@@ -11,6 +11,7 @@ import { TodoHeader } from "./TodoHeader";
 import { EmptyTodos } from "./EmptuTodos";
 import { TodosLoading } from "./TodosLoading";
 import { TodosError } from "./TodosError";
+import { ChangeAlertStorageListener } from "./ChangeAlert";
 
 function App() {
 
@@ -27,18 +28,21 @@ function App() {
     totalTodos,
     setSearchValue,
     addTodo,
+    sincronizeTodos,
 } = useTodos();
 
 return (
     <React.Fragment >
-        <TodoHeader>
+        <TodoHeader loading={loading}>
             <TodoCounter 
                 completedTodos={completedTodos}
                 totalTodos={totalTodos}
+                //loading={loading}
             />
             <TodoSearch 
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
+                //loading={loading}
             />
   </TodoHeader>
     <TodoList 
@@ -88,6 +92,9 @@ return (
     )}
   <CreateTodoButton 
       setOpenModal={setOpenModal}
+  />
+  <ChangeAlertStorageListener 
+    sincronize={sincronizeTodos}
   />
 </React.Fragment>
 )
